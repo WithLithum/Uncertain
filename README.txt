@@ -1,0 +1,1 @@
+Uncertain is a simple note-taking app for Windows.
