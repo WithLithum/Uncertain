@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uncertain.Models;
+using Uncertain.Properties;
 
 public partial class TheoryWindow : Form
 {
@@ -40,5 +41,16 @@ public partial class TheoryWindow : Form
     private void buttonCancel_Click(object sender, EventArgs e)
     {
         Close();
+    }
+
+    private void TheoryWindow_Load(object sender, EventArgs e)
+    {
+        this.Size = Settings.Default.TheoryWindowSize;
+    }
+
+    private void TheoryWindow_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        Settings.Default.TheoryWindowSize = this.Size;
+        Settings.Default.Save();
     }
 }
