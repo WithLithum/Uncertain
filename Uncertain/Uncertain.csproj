@@ -9,7 +9,7 @@
     <ApplicationIcon>Uncertain.ico</ApplicationIcon>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <Authors>WithLithum</Authors>
-    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionPrefix>0.1.1</VersionPrefix>
     <VersionSuffix>alpha</VersionSuffix>
   </PropertyGroup>
 
