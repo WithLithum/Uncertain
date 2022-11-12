@@ -28,7 +28,6 @@ partial class AboutWindow
     /// </summary>
     private void InitializeComponent()
     {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutWindow));
             this.label1 = new System.Windows.Forms.Label();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.textDetails = new System.Windows.Forms.TextBox();
@@ -66,7 +65,7 @@ partial class AboutWindow
             this.textDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textDetails.Size = new System.Drawing.Size(687, 299);
             this.textDetails.TabIndex = 2;
-            this.textDetails.Text = resources.GetString("textDetails.Text");
+            this.textDetails.Text = "Copyright (C) 2022 WithLithum.";
             // 
             // buttonClose
             // 
