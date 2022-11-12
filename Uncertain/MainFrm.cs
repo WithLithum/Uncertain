@@ -24,13 +24,6 @@ public partial class MainFrm : Form
         }
 
         var col = _db.GetCollection<Theory>(_dbCollectionName);
-
-        if (col.FindOne(x => Name == window.Title) != null)
-        {
-            MessageBox.Show("A theory with that name already exists!");
-            return;
-        }
-
         var theory = new Theory
         {
             Description = window.Content,
@@ -49,7 +42,7 @@ public partial class MainFrm : Form
         foreach (var item in items)
         {
             if (item == null) continue;
-            listTheory.Items.Add(item.Name);
+            listTheory.Items.Add(item);
         }
     }
 
@@ -80,29 +73,21 @@ public partial class MainFrm : Form
         if (window.ShowDialog() == DialogResult.OK)
         {
             var col = _db.GetCollection<Theory>(_dbCollectionName);
+            item.Name = window.Title;
             item.Description = window.Content;
             col.Update(item);
+            RefreshList();
         }
     }
 
     private bool TryGetSelectedTheory(out Theory? theory)
     {
-        var sel = listTheory.SelectedItem?.ToString();
+        var sel = listTheory.SelectedItem;
 
-        if (string.IsNullOrWhiteSpace(sel))
+        if (sel is not Theory item)
         {
+            MessageBox.Show("Something went wrong.");
             theory = null;
-            return false;
-        }
-
-        var col = _db.GetCollection<Theory>(_dbCollectionName);
-        var item = col.FindOne(x => x.Name == sel);
-
-        if (item == null)
-        {
-            theory = null;
-            MessageBox.Show("Something terrible happened and list does not match database.");
-            RefreshList();
             return false;
         }
 
@@ -143,5 +128,10 @@ public partial class MainFrm : Form
     private void linkAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         new AboutWindow().ShowDialog();
+    }
+
+    private void buttonRefresh_Click(object sender, EventArgs e)
+    {
+        RefreshList();
     }
 }

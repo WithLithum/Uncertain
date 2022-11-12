@@ -19,8 +19,6 @@ public partial class TheoryWindow : Form
     {
         textTitle.Text = theory.Name;
         textContent.Text = theory.Description;
-
-        textTitle.ReadOnly = true;
     }
 
     public TheoryWindow()

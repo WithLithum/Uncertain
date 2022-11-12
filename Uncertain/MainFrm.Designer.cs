@@ -34,6 +34,7 @@ partial class MainFrm
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.linkAbout = new System.Windows.Forms.LinkLabel();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listTheory
@@ -86,7 +87,7 @@ partial class MainFrm
             // 
             this.linkAbout.AutoSize = true;
             this.linkAbout.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.linkAbout.Location = new System.Drawing.Point(112, 389);
+            this.linkAbout.Location = new System.Drawing.Point(221, 389);
             this.linkAbout.Name = "linkAbout";
             this.linkAbout.Size = new System.Drawing.Size(72, 18);
             this.linkAbout.TabIndex = 5;
@@ -95,12 +96,24 @@ partial class MainFrm
             this.linkAbout.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.linkAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAbout_LinkClicked);
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRefresh.Location = new System.Drawing.Point(112, 384);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(94, 29);
+            this.buttonRefresh.TabIndex = 6;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(711, 423);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.linkAbout);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonCreate);
@@ -127,4 +140,5 @@ partial class MainFrm
     private Button buttonCreate;
     private Button buttonDelete;
     private LinkLabel linkAbout;
+    private Button buttonRefresh;
 }
