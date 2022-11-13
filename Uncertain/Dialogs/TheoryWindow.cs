@@ -76,6 +76,11 @@ public partial class TheoryWindow : Form
             style |= FontStyle.Italic;
         }
 
+        if (checkUnderline.Checked)
+        {
+            style |= FontStyle.Underline;
+        }
+
         textContent.SelectionFont = new Font(textContent.SelectionFont, style);
     }
 
@@ -87,5 +92,26 @@ public partial class TheoryWindow : Form
     private void checkItalic_CheckedChanged(object sender, EventArgs e)
     {
         UpdateFont();
+    }
+
+    private void textContent_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Control)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.B:
+                    checkBold.Checked = !checkBold.Checked;
+                    break;
+
+                case Keys.I:
+                    checkItalic.Checked = !checkItalic.Checked;
+                    break;
+
+                case Keys.U:
+                    checkUnderline.Checked = !checkUnderline.Checked;
+                    break;
+            }
+        }
     }
 }

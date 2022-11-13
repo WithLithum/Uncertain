@@ -37,6 +37,7 @@ partial class TheoryWindow
             this.flowRich = new System.Windows.Forms.FlowLayoutPanel();
             this.checkBold = new System.Windows.Forms.CheckBox();
             this.checkItalic = new System.Windows.Forms.CheckBox();
+            this.checkUnderline = new System.Windows.Forms.CheckBox();
             this.textContent = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -114,6 +115,7 @@ partial class TheoryWindow
             // 
             this.flowRich.Controls.Add(this.checkBold);
             this.flowRich.Controls.Add(this.checkItalic);
+            this.flowRich.Controls.Add(this.checkUnderline);
             this.flowRich.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowRich.Location = new System.Drawing.Point(3, 29);
             this.flowRich.Name = "flowRich";
@@ -146,6 +148,18 @@ partial class TheoryWindow
             this.checkItalic.UseVisualStyleBackColor = false;
             this.checkItalic.CheckedChanged += new System.EventHandler(this.checkItalic_CheckedChanged);
             // 
+            // checkUnderline
+            // 
+            this.checkUnderline.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkUnderline.BackColor = System.Drawing.Color.White;
+            this.checkUnderline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkUnderline.Image = ((System.Drawing.Image)(resources.GetObject("checkUnderline.Image")));
+            this.checkUnderline.Location = new System.Drawing.Point(49, 3);
+            this.checkUnderline.Name = "checkUnderline";
+            this.checkUnderline.Size = new System.Drawing.Size(17, 17);
+            this.checkUnderline.TabIndex = 2;
+            this.checkUnderline.UseVisualStyleBackColor = false;
+            // 
             // textContent
             // 
             this.textContent.BackColor = System.Drawing.Color.Black;
@@ -157,6 +171,7 @@ partial class TheoryWindow
             this.textContent.Size = new System.Drawing.Size(650, 326);
             this.textContent.TabIndex = 4;
             this.textContent.Text = "";
+            this.textContent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textContent_KeyDown);
             // 
             // TheoryWindow
             // 
@@ -196,4 +211,5 @@ partial class TheoryWindow
     private RichTextBox textContent;
     private CheckBox checkBold;
     private CheckBox checkItalic;
+    private CheckBox checkUnderline;
 }
