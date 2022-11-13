@@ -27,7 +27,8 @@ public partial class MainFrm : Form
         var theory = new Theory
         {
             Description = window.Content,
-            Name = window.Title
+            Name = window.Title,
+            LastSave = DateTime.Now
         };
 
         col.Insert(theory);
@@ -75,6 +76,7 @@ public partial class MainFrm : Form
             var col = _db.GetCollection<Theory>(_dbCollectionName);
             item.Name = window.Title;
             item.Description = window.Content;
+            item.LastSave = DateTime.Now;
             col.Update(item);
             RefreshList();
         }
