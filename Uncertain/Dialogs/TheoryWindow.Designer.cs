@@ -28,14 +28,19 @@ partial class TheoryWindow
     /// </summary>
     private void InitializeComponent()
     {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TheoryWindow));
             this.textTitle = new System.Windows.Forms.TextBox();
-            this.textContent = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowRich = new System.Windows.Forms.FlowLayoutPanel();
+            this.checkBold = new System.Windows.Forms.CheckBox();
+            this.checkItalic = new System.Windows.Forms.CheckBox();
+            this.textContent = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowRich.SuspendLayout();
             this.SuspendLayout();
             // 
             // textTitle
@@ -50,20 +55,6 @@ partial class TheoryWindow
             this.textTitle.Size = new System.Drawing.Size(650, 25);
             this.textTitle.TabIndex = 0;
             this.textTitle.Text = "Unnamed Theory";
-            // 
-            // textContent
-            // 
-            this.textContent.BackColor = System.Drawing.Color.Black;
-            this.textContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textContent.ForeColor = System.Drawing.Color.White;
-            this.textContent.Location = new System.Drawing.Point(3, 29);
-            this.textContent.Multiline = true;
-            this.textContent.Name = "textContent";
-            this.textContent.PlaceholderText = "Theory Content...";
-            this.textContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textContent.Size = new System.Drawing.Size(650, 352);
-            this.textContent.TabIndex = 1;
             // 
             // buttonSave
             // 
@@ -94,12 +85,14 @@ partial class TheoryWindow
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.textTitle, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textContent, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.flowRich, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textContent, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -116,6 +109,54 @@ partial class TheoryWindow
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(650, 34);
             this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // flowRich
+            // 
+            this.flowRich.Controls.Add(this.checkBold);
+            this.flowRich.Controls.Add(this.checkItalic);
+            this.flowRich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowRich.Location = new System.Drawing.Point(3, 29);
+            this.flowRich.Name = "flowRich";
+            this.flowRich.Size = new System.Drawing.Size(650, 20);
+            this.flowRich.TabIndex = 3;
+            // 
+            // checkBold
+            // 
+            this.checkBold.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBold.BackColor = System.Drawing.Color.White;
+            this.checkBold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBold.Image = ((System.Drawing.Image)(resources.GetObject("checkBold.Image")));
+            this.checkBold.Location = new System.Drawing.Point(3, 3);
+            this.checkBold.Name = "checkBold";
+            this.checkBold.Size = new System.Drawing.Size(17, 17);
+            this.checkBold.TabIndex = 0;
+            this.checkBold.UseVisualStyleBackColor = false;
+            this.checkBold.CheckedChanged += new System.EventHandler(this.checkBold_CheckedChanged);
+            // 
+            // checkItalic
+            // 
+            this.checkItalic.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkItalic.BackColor = System.Drawing.Color.White;
+            this.checkItalic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkItalic.Image = ((System.Drawing.Image)(resources.GetObject("checkItalic.Image")));
+            this.checkItalic.Location = new System.Drawing.Point(26, 3);
+            this.checkItalic.Name = "checkItalic";
+            this.checkItalic.Size = new System.Drawing.Size(17, 17);
+            this.checkItalic.TabIndex = 1;
+            this.checkItalic.UseVisualStyleBackColor = false;
+            this.checkItalic.CheckedChanged += new System.EventHandler(this.checkItalic_CheckedChanged);
+            // 
+            // textContent
+            // 
+            this.textContent.BackColor = System.Drawing.Color.Black;
+            this.textContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textContent.ForeColor = System.Drawing.Color.White;
+            this.textContent.Location = new System.Drawing.Point(3, 55);
+            this.textContent.Name = "textContent";
+            this.textContent.Size = new System.Drawing.Size(650, 326);
+            this.textContent.TabIndex = 4;
+            this.textContent.Text = "";
             // 
             // TheoryWindow
             // 
@@ -139,6 +180,7 @@ partial class TheoryWindow
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowRich.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -146,9 +188,12 @@ partial class TheoryWindow
     #endregion
 
     private TextBox textTitle;
-    private TextBox textContent;
     private Button buttonSave;
     private Button buttonCancel;
     private TableLayoutPanel tableLayoutPanel1;
     private FlowLayoutPanel flowLayoutPanel1;
+    private FlowLayoutPanel flowRich;
+    private RichTextBox textContent;
+    private CheckBox checkBold;
+    private CheckBox checkItalic;
 }

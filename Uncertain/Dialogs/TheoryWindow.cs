@@ -14,12 +14,20 @@ using Uncertain.Properties;
 public partial class TheoryWindow : Form
 {
     public string Title => textTitle.Text;
-    public string Content => textContent.Text;
+    public string Content => textContent.Rtf;
 
     public TheoryWindow(Theory theory) : this()
     {
         textTitle.Text = theory.Name;
-        textContent.Text = theory.Description;
+        try
+        {
+            textContent.Rtf = theory.Description;
+        }
+        catch (ArgumentException ex)
+        {
+            MessageBox.Show($"Unable to open theory {theory.Name} as rich format: {ex.Message}{Environment.NewLine}Opening as plain text.");
+            textContent.Text = theory.Description;
+        }
     }
 
     public TheoryWindow()
@@ -52,5 +60,32 @@ public partial class TheoryWindow : Form
     {
         Settings.Default.TheoryWindowSize = this.Size;
         Settings.Default.Save();
+    }
+
+    private void UpdateFont()
+    {
+        var style = FontStyle.Regular;
+
+        if (checkBold.Checked)
+        {
+            style |= FontStyle.Bold;
+        }
+
+        if (checkItalic.Checked)
+        {
+            style |= FontStyle.Italic;
+        }
+
+        textContent.SelectionFont = new Font(textContent.SelectionFont, style);
+    }
+
+    private void checkBold_CheckedChanged(object sender, EventArgs e)
+    {
+        UpdateFont();
+    }
+
+    private void checkItalic_CheckedChanged(object sender, EventArgs e)
+    {
+        UpdateFont();
     }
 }
