@@ -80,9 +80,15 @@ public partial class MainFrm : Form
         }
     }
 
-    private bool TryGetSelectedTheory(out Theory? theory)
+    private bool TryGetSelectedTheory(out Theory? theory, bool ignoreNull = true)
     {
         var sel = listTheory.SelectedItem;
+
+        if (ignoreNull && sel == null)
+        {
+            theory = null;
+            return false;
+        }
 
         if (sel is not Theory item)
         {
